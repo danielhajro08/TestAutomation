@@ -1,0 +1,181 @@
+  WebDriverManager.chromedriver().clearDriverCache().setup();
+        WebDriver driver = new ChromeDriver();
+
+
+        WebElement element = driver.findElement(By.id("Id"));
+
+
+        /* clear( ) : void – If this element is a text entry element, this will clear the value.
+         * This method accepts nothing as a parameter and returns nothing.
+         */
+        element.clear();
+
+
+
+        /* sendKeys(CharSequence… keysToSend ) : void – This simulate typing into an element, which may set its value.
+         * This method accepts CharSequence as a parameter and returns nothing.
+         */
+        element.sendKeys("Some text");
+
+
+
+        /* click( ) : void – This simulates the clicking of any element.
+         * Accepts nothing as a parameter and returns nothing.
+         */
+        element.click();
+
+
+
+        /* isDisplayed( ) : boolean – This method determines if an element is currently being displayed or not.
+         * This accepts nothing as a parameter but returns boolean value(true/false).
+         */
+        Boolean isDisplayed = element.isDisplayed();
+
+
+
+        /* isEnabled( ) : boolean – This determines if the element currently is Enabled or not?
+         * This accepts nothing as a parameter but returns boolean value(true/false).
+         */
+        Boolean isEnabled = element.isEnabled();
+
+
+
+        /* isSelected( ) : boolean – Determine whether or not this element is selected or not.
+         * This accepts nothing as a parameter but returns boolean value(true/false).
+         */
+        Boolean isSelected = element.isSelected();
+
+
+
+        /* submit( ) : void– This method works well/better than the click() if the current element is a form, or an element within a form.
+         * This accepts nothing as a parameter and returns nothing.
+         */
+        element.submit();
+
+
+
+        /* getText( ) : String– This method will fetch the visible (i.e. not hidden by CSS) innerText of the element.
+         * This accepts nothing as a parameter but returns a String value.
+         */
+        String text = element.getText();
+
+
+
+        /* getTagName( ) : String– This method gets the tag name of this element.
+         * This accepts nothing as a parameter and returns a String value.
+         */
+        String tagName = element.getTagName();
+
+
+
+        /* getCssvalue( ) : String– This method Fetch CSS property value of the give element.
+         * This accepts String as a parameter and returns a String value.
+         */
+        String backgroundColor = element.getCssValue("background-color");
+
+
+
+        /* getAttribute(String Name) : String– This method gets the value of the given attribute of the element.
+         * This accepts the String as a parameter and returns a String value.
+         */
+        String classValue = element.getAttribute("class");
+        String idValue = element.getAttribute("id");
+        String textValue = element.getAttribute("text");
+
+
+
+        /* getSize( ) : Dimension – This method fetch the width and height of the rendered element.
+         * This accepts nothing as a parameter but returns the Dimension object.
+         */
+        Dimension dimension = element.getSize();
+        System.out.println("Height :" + dimension.height + "Width : " + dimension.width);
+
+
+
+        /* getLocation( ) : Point – This method locate the location of the element on the page.
+         * This accepts nothing as a parameter but returns the Point object.
+         */
+        Point point = element.getLocation();
+        System.out.println("X cordinate : " + point.x + "Y cordinate: " + point.y);
+
+
+              WebDriverManager.chromedriver().clearDriverCache().setup();
+        WebDriver driver = new ChromeDriver();
+
+
+        //      driver.manage().window().maximize();
+
+        String baseUrl = "https://www.guru99.com/introduction-to-selenium.html";
+
+
+        /* launch Chrome and direct it to the Base URL
+         *   get(String arg0): void – This method Load a new web page in the current browser window.
+         *   Accepts String as a parameter and returns nothing.
+         */
+        driver.get(baseUrl);
+
+
+
+        /*  getTitle(): String – This method fetches the Title of the current page.
+         *   Accepts nothing as a parameter and returns a String value.
+         */
+        String title = driver.getTitle();
+        System.out.println("The title of the page is: " + title);
+
+
+
+        /*  getCurrentUrl(): String – This method fetches the string representing the Current URL which is opened in the browser.
+         *  Accepts nothing as a parameter and returns a String value.
+         */
+        String currentURL = driver.getCurrentUrl();
+        System.out.println("Current URL is: " + currentURL);
+
+        if (currentURL.equals(baseUrl)) {
+            System.out.println("Verification Successful - The correct Url is opened.");
+        } else {
+            System.out.println("Verification Failed - An incorrect Url is opened.");
+
+            //In case of Fail, you like to print the actual and expected URL for the record purpose
+            System.out.println("Actual URL is : " + currentURL);
+            System.out.println("Expected URL is : " + baseUrl);
+        }
+
+
+
+        /*  close(): void – This method Closes only the current window the WebDriver is currently controlling.
+         *  Accepts nothing as a parameter and returns nothing.
+         */
+        driver.close();
+
+
+
+        /*  quit(): void – This method Closes all windows opened by the WebDriver.
+         *  Accepts nothing as a parameter and returns nothing.
+         */
+        driver.quit();
+
+
+ //     Thread.sleep(2000);
+    //     driver.get(baseURL);
+    //     if(driver.getTitle().equals("Uptut | Corporate IT Training & Consulting Services")){
+    //         System.out.println("Pass");
+    //     }else{
+    //         System.out.println("Fail");
+    //     }
+    //     Thread.sleep(2000);
+    //    driver.navigate().to("https://www.facebook.com");
+    //    Thread.sleep(2000);
+    //    System.out.println(driver.getCurrentUrl());
+    //    Thread.sleep(2000);
+    //    driver.navigate().back();
+    //    Thread.sleep(2000);
+    //    System.out.println( driver.getCurrentUrl());
+    //    Thread.sleep(2000);
+    //    driver.navigate().forward();
+    //    Thread.sleep(2000);
+    //    System.out.println(driver.getCurrentUrl());
+    //    Thread.sleep(2000);
+    //    driver.navigate().refresh();
+    //    Thread.sleep(2000);
+    //    driver.close();
+    //    driver.quit();
