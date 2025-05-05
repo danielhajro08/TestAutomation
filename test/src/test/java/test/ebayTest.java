@@ -43,7 +43,7 @@ public class ebayTest {
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", rPIbutton);
         rPIbutton.click();
 
-        WebElement firstElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='brwrvr__item-card__wrapper'])[1]")));
+        WebElement firstElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='brwrvr__item-card__wrapper'])[1]//div")));
         WebElement firstElementText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='brwrvr__item-card__wrapper'])[1]//h3")));
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", firstElement);
         String text1=firstElementText.getText();
