@@ -35,7 +35,7 @@ public class ebayTest {
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", desktopAndAIO);
         desktopAndAIO.click();
 
-        WebElement brandMenu = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nid-xu2-4")));
+        WebElement brandMenu = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//button[@class='filter-button filter-button--unselected filter-menu-button__button'])[1]")));
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", brandMenu);
         brandMenu.click();
 
@@ -47,11 +47,13 @@ public class ebayTest {
         WebElement firstElementText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='brwrvr__item-card__wrapper'])[1]//h3")));
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", firstElement);
         String text1=firstElementText.getText();
+        System.out.println(text1);
         firstElement.click();
 
         WebElement afterClickTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[@class='x-item-title__mainTitle']")));
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", afterClickTitle);
         String text2 = afterClickTitle.getText();
+        System.out.println(text2);
         if (text1.equals(text2)) {
             System.out.println("Match");
         }else{
