@@ -10,8 +10,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class test9 {
@@ -71,7 +69,7 @@ public static void main(String[] args) throws InterruptedException {
 
         WebElement photo = driver.findElement(By.id("photo"));
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", photo);
-        String filepath = "C://Users//daniel.hajro//Pictures//Saved Pictures//pexels-matthew-montrone-230847-1324803.jpg";
+        String filepath = "C://Users//User//Pictures//Saved Pictures//404670-svetik.jpg";
         photo.sendKeys(filepath);
 
         WebElement link = wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Click here to Download File")));
