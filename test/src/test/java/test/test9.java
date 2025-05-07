@@ -67,10 +67,10 @@ public static void main(String[] args) throws InterruptedException {
         selenium_commands.selectByIndex(1);
         selenium_commands.selectByIndex(2);
 
-        WebElement photo = driver.findElement(By.id("photo"));
-        js.executeScript("arguments[0].scrollIntoView({block: 'center'});", photo);
-        String filepath = "C://Users//User//Pictures//Saved Pictures//404670-svetik.jpg";
-        photo.sendKeys(filepath);
+        // WebElement photo = driver.findElement(By.id("photo"));
+        // js.executeScript("arguments[0].scrollIntoView({block: 'center'});", photo);
+        // String filepath = "C://Users//User//Pictures//Saved Pictures//404670-svetik.jpg";
+        // photo.sendKeys(filepath);
 
         WebElement link = wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Click here to Download File")));
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", link);

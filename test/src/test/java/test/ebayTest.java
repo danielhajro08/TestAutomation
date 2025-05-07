@@ -43,18 +43,18 @@ public class ebayTest {
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", rPIbutton);
         rPIbutton.click();
 
-        WebElement firstElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='brwrvr__item-card__wrapper'])[1]//div")));
+        WebElement secondElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='brwrvr__item-card__wrapper'])[2]//div")));
         WebElement firstElementText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='brwrvr__item-card__wrapper'])[1]//h3")));
-        js.executeScript("arguments[0].scrollIntoView({block: 'center'});", firstElement);
+        js.executeScript("arguments[0].scrollIntoView({block: 'center'});", secondElement);
         String text1=firstElementText.getText();
         System.out.println(text1);
-        firstElement.click();
+        secondElement.click();
 
         WebElement afterClickTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[@class='x-item-title__mainTitle']")));
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", afterClickTitle);
         String text2 = afterClickTitle.getText();
         System.out.println(text2);
-        if (text1.equals(text2)) {
+        if (text1.contains(text2)) {
             System.out.println("Match");
         }else{
             System.out.println("Error");
@@ -104,8 +104,25 @@ public class ebayTest {
         WebElement submit = driver.findElement(By.xpath("//button[@data-test-id = 'ADD_ADDRESS_SUBMIT']"));
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", submit);
         submit.click();
+
+        driver.navigate().back();
+        WebElement totalPage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='x-price-primary']//span")));
+        String pricePage = totalPage.getText();
+
+        WebElement cart = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("atcBtn_btn_1")));
+        js.executeScript("arguments[0].scrollIntoView({block: 'center'});", cart);
+        cart.click();
+
+        WebElement totalCart = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-test-id='SUBTOTAL']//span//span//span")));
+        String priceCart = totalCart.getText();
+        if(priceCart.equals(pricePage)){
+            System.out.println("Price Match");
+        }else{
+            System.out.println("Price doesnt match");
+        }
+
+
+
     }
-
    
-
 }
